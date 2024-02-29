@@ -81,7 +81,6 @@ function HomePage() {
                                     </select>
 
                                 </li>
-
                                 <li className="nav-item">
                                     <label className="nav-link">Category:</label>
                                     <select className="form-select" value={category} onChange={e => setCategory(e.target.value)}>
