@@ -11,7 +11,7 @@ function BuyNow() {
 
 
     const rest = cartItemsBuy.reduce((accumulator, currentValue) => {
-        return accumulator + currentValue.price; 
+        return accumulator + currentValue.price;
     }, 0);
 
     function calculateGST(value) {

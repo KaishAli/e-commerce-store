@@ -45,7 +45,7 @@ function CartPage() {
                 message="Order has been Placed"
             />
             <h2>Cart</h2>
-            <div className='t-5' style={{marginBottom:"20px"}}><button onClick={handleBack} className="btn btn-success" >Back</button></div>
+            <div className='t-5' style={{ marginBottom: "20px" }}><button onClick={handleBack} className="btn btn-success" >Back</button></div>
 
             {cartItems.length === 0 ? (
                 <p>Your cart is empty</p>

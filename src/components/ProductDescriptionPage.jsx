@@ -6,12 +6,10 @@ function ProductDescriptionPage() {
 
   const location = useLocation();
   console.log(location.state,'location');
-  // Fetch product details using productId and display them
 
   return (
     <div>
       <h2>Product Description</h2>
-      {/* Product details */}
     </div>
   );
 }

@@ -36,9 +36,6 @@ function HomePage() {
 
         }
     }
-
-    // Filter products based on price range and category
-    // Filter products based on price range and category
     const filteredProducts = products.filter(product => {
         const isInPriceRange = product.price >= minPrice && product.price <= maxPrice;
         const isMatchingCategory = !category || product.category === category;
@@ -71,7 +68,7 @@ function HomePage() {
                                             max = 2000;
                                         } else {
                                             [min, max] = value.split('-').map(Number);
-                                            max = max === 1000 ? 99999 : max; // Set max to a large number for "1000+" option
+                                            max = max === 1000 ? 99999 : max; 
                                         }
                                         setMinPrice(min);
                                         setMaxPrice(max);
