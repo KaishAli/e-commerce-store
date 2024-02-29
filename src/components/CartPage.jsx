@@ -1,9 +1,13 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import Snackbar from '@mui/material/Snackbar';
+import { useNavigate } from 'react-router-dom';
 
 function CartPage() {
+    const [open, setOpen] = React.useState(false);
     const cartItems = useSelector(state => state.cart.items);
     const dispatch = useDispatch();
+    const navigate = useNavigate()
 
     console.log(cartItems, 'cartItems');
     const removeFromCart = (item) => {
@@ -11,20 +15,38 @@ function CartPage() {
     };
 
     const rest = cartItems.reduce((accumulator, currentValue) => {
-        return accumulator + currentValue.price; // Assuming each item has a 'price' property
+        return accumulator + currentValue.price;
     }, 0);
     console.log(rest, 'ghg');
 
     function calculateGST(value) {
         return (value * 28) / 100
     }
-
-
     const Gst = calculateGST(rest)
-    const grandTotal = rest + Gst + 10
+    const grandTotal = rest + Gst + 10;
+
+    function handleClose() {
+        setTimeout(() => {
+            setOpen(false);
+        }, 300);
+    }
+    function handleOpen() {
+        setOpen(true);
+    }
+    function handleBack() {
+        navigate("/");
+    }
     return (
         <div className="container">
+            <Snackbar
+                open={open}
+                autoHideDuration={6000}
+                onClose={handleClose}
+                message="Order has been Placed"
+            />
             <h2>Cart</h2>
+            <div className='t-5' style={{marginBottom:"20px"}}><button onClick={handleBack} className="btn btn-success" >Back</button></div>
+
             {cartItems.length === 0 ? (
                 <p>Your cart is empty</p>
             ) : (
@@ -61,6 +83,7 @@ function CartPage() {
                             <div>Grand Total:</div>
                             <div>${grandTotal}</div>
                         </div>
+                        <div><button onClick={handleOpen} className="btn btn-success" >By Now</button></div>
                     </div>
                 </>
             )}
