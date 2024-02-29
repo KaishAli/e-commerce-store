@@ -36,7 +36,6 @@ function HomePage() {
 
         }
     }
-
     // Filter products based on price range and category
     const filteredProducts = products.filter(product => {
         const isInPriceRange = product.price >= minPrice && product.price <= maxPrice;
