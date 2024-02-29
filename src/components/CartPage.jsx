@@ -88,7 +88,6 @@ function CartPage() {
                 </>
             )}
         </div>
-
     );
 }
 
