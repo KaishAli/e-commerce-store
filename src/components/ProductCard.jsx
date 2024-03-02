@@ -45,6 +45,7 @@ function ProductCard({ product }) {
                     <img src={product.images[0]} alt="productStore" className="photoset" />
                     <div className="container ">
                         <h4 className="hname">{product.title}</h4>
+                        <span className="">{product.description}</span>
                         <p className="pname">${product.price}</p>
                     </div>
                     <div className="">
